@@ -1,0 +1,159 @@
+---
+title: Getting Started with Bee-Fee Platform
+description: A step-by-step guide to quickly set up an account and begin integrating Bee-Fee's gaming solutions.
+---
+
+## Overview
+
+Bee-Fee Ltd. provides robust online gaming solutions for casino games, sports betting, and poker. This quickstart guides you through account creation, platform setup, basic integration, and testing your first game or bet. Follow these steps to launch in minutes.
+
+<Columns cols={3}>
+  <Card title="Register Account" icon="user-plus" href="#register">
+    Create and verify your developer account.
+  </Card>
+  <Card title="Setup Platform" icon="settings" href="#setup">
+    Configure your initial environment.
+  </Card>
+  <Card title="Integrate & Test" icon="play-circle" href="#integrate">
+    Launch your first game integration.
+  </Card>
+</Columns>
+
+## Register Your Account
+
+Begin by creating a Bee-Fee developer account.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit the [Bee-Fee Developer Portal](https://developer.beefee.com/signup) and click **Sign Up**.
+
+    Provide your email, company name, and intended use case (e.g., casino integration or sports betting).
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification email from `no-reply@beefee.com`. Click the link to activate.
+  </Step>
+  <Step title="Complete Profile" icon="edit-3">
+    Log in and fill out your profile with business details. Generate your first `{API_KEY}` from the dashboard.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Store your `{API_KEY}` securely. Use environment variables like `process.env.BEE_FEE_API_KEY` in production.
+</Callout>
+
+## Initial Platform Setup
+
+Configure your Bee-Fee sandbox environment for testing.
+
+<Steps>
+  <Step title="Create Sandbox" icon="database">
+    In the dashboard, navigate to **Projects > New Sandbox**. Name it (e.g., `my-casino-test`).
+  </Step>
+  <Step title="Set Webhook" icon="zap">
+    Under **Settings > Webhooks**, add your endpoint: `https://your-domain.com/beefee-webhook`.
+  </Step>
+  <Step title="Whitelist Domain" icon="globe">
+    Add your production domain under **Security > Allowed Origins** to enable CORS.
+  </Step>
+</Steps>
+
+## Basic Integration Steps
+
+Integrate Bee-Fee's API to embed games or place bets. Use the sandbox `{API_KEY}` for initial tests.
+
+<Tabs>
+  <Tab title="JavaScript" icon="code">
+    Install the SDK and initialize.
+
+    <CodeGroup tabs="npm,yarn">
+```bash
+npm install @beefee/sdk
+```
+```bash
+yarn add @beefee/sdk
+```
+    </CodeGroup>
+
+    ```javascript
+    import { BeeFeeSDK } from '@beefee/sdk';
+
+    const sdk = new BeeFeeSDK({
+      apiKey: process.env.BEE_FEE_API_KEY,
+      environment: 'sandbox',
+      webhookUrl: 'https://your-domain.com/beefee-webhook'
+    });
+
+    // Embed a casino game
+    sdk.embedGame('roulette-pro', {
+      container: '#game-container',
+      theme: 'dark'
+    });
+    ```
+  </Tab>
+  <Tab title="Python" icon="python">
+    Use the Python client for backend bets.
+
+    ```bash
+    pip install beefee-python
+    ```
+
+    ```python
+    from beefee import BeeFeeClient
+
+    client = BeeFeeClient(
+        api_key='YOUR_API_KEY',
+        environment='sandbox'
+    )
+
+    # Place a sports bet
+    bet = client.create_bet(
+        event_id='soccer-match-123',
+        amount=10.00,
+        odds=1.85
+    )
+    print(f"Bet ID: {bet.id}")
+    ```
+  </Tab>
+</Tabs>
+
+<ParamField path="apiKey" param-type="string" required="true">
+  Your secret API key from the dashboard.
+</ParamField>
+
+<ParamField query="gameId" param-type="string" required="false">
+  ID of the game to embed (e.g., `roulette-pro`).
+</ParamField>
+
+## Test Your First Game or Bet
+
+Launch a test game and verify webhook delivery.
+
+1. Load your page with the embedded game.
+2. Place a demo bet or spin.
+3. Check the dashboard **Events** tab for activity.
+4. Confirm webhook receipt on your server.
+
+<Callout kind="success">
+  Success! Your integration is live. Monitor real-time events via the dashboard.
+</Callout>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+
+- **CORS errors**: Ensure your domain is whitelisted.
+- **Invalid `{API_KEY}`**: Regenerate in dashboard.
+- **No webhooks**: Verify endpoint responds with 200 OK.
+
+</Expandable>
+
+## Next Steps
+
+Explore advanced features like player management and analytics.
+
+<Columns cols={2}>
+  <Card title="API Reference" icon="book-open" href="/docs/api">
+    Full endpoint documentation.
+  </Card>
+  <Card title="Production Deployment" icon="rocket" href="/docs/deploy">
+    Go live checklist.
+  </Card>
+</Columns>

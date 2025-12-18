@@ -1,0 +1,96 @@
+---
+title: Welcome to Bee-Fee Ltd.
+description: An overview of Bee-Fee Ltd., a leading provider of innovative online gaming solutions including casino games, sports betting, and poker.
+---
+
+## Overview
+
+Bee-Fee Ltd. leads the online gaming industry with cutting-edge solutions for casino games, sports betting, and poker. You gain access to reliable platforms that drive player engagement and revenue growth. Our mission focuses on delivering secure, scalable, and immersive experiences that keep you ahead of the competition.
+
+Founded with a commitment to innovation, Bee-Fee combines advanced technology with deep industry expertise. You benefit from our robust infrastructure that handles high-volume traffic while ensuring regulatory compliance across multiple jurisdictions.
+
+<Callout kind="info">
+Bee-Fee platforms support real-time analytics and customizable white-label solutions tailored to your brand.
+</Callout>
+
+## Core Product Offerings
+
+Explore our flagship products designed for seamless integration and maximum performance.
+
+<Columns cols={3}>
+  <Card title="Casino Games" icon="gamepad-2" href="/docs/casino">
+    Over 1,000 slots, table games, and live dealer options. Integrate via our unified API for instant play.
+  </Card>
+  <Card title="Sports Betting" icon="zap" href="/docs/sports">
+    Comprehensive odds management and live betting. Supports 50+ sports with real-time updates.
+  </Card>
+  <Card title="Poker" icon="cards" href="/docs/poker">
+    Multi-table tournaments and cash games. Features anti-collusion tools and mobile optimization.
+  </Card>
+</Columns>
+
+## Benefits for Customers and Partners
+
+Bee-Fee empowers you with advantages that boost retention and profitability.
+
+| Benefit              | For Customers                  | For Partners                     |
+|----------------------|--------------------------------|----------------------------------|
+| Scalability          | Handles `<1ms` latency peaks   | Auto-scales to millions of users |
+| Security             | End-to-end encryption          | PCI DSS and GDPR compliant       |
+| Customization        | Branded themes and UI          | White-label with your domain     |
+| Revenue Tools        | Loyalty programs               | Affiliate tracking and payouts   |
+
+<Expandable title="Advanced Analytics Details">
+Dive deeper into our reporting suite. You access player behavior insights, churn prediction, and A/B testing tools via a intuitive dashboard.
+</Expandable>
+
+## Getting Started
+
+Launch your Bee-Fee integration in minutes. Follow these steps to go live.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create your account at https://platform.beefee.com/register. Verify your email to receive your API key.
+  </Step>
+  <Step title="Integrate API" icon="code">
+    Use our SDKs for quick setup. Authenticate with your `{API_KEY}`.
+
+    <CodeGroup tabs="JavaScript,Python">
+      ```javascript
+      const BeeFee = require('beefee-sdk');
+      const client = new BeeFee({ apiKey: 'YOUR_API_KEY' });
+      const games = await client.games.list();
+      console.log(games);
+      ```
+      ```python
+      import beefee
+      client = beefee.Client(api_key='YOUR_API_KEY')
+      games = client.games.list()
+      print(games)
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Launch" icon="rocket">
+    Test in sandbox mode, then switch to production. Monitor via our dashboard.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Web Integration" icon="globe">
+    Embed games using our iframe widget.
+
+    ```html
+    <iframe src="https://api.beefee.com/embed/slots?token=YOUR_TOKEN" width="100%" height="600"></iframe>
+    ```
+  </Tab>
+  <Tab title="Mobile SDK" icon="smartphone">
+    Native support for iOS and Android.
+
+    ```swift
+    import BeeFeeSDK
+    BeeFeeSDK.shared.launchGame(id: "slots-123")
+    ```
+  </Tab>
+</Tabs>
+
+Ready to elevate your gaming platform? Start building with Bee-Fee today.
